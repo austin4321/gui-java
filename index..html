@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS GUI</title>
+</head>
+<body>
+  <script>
+    // Create container div
+    const container = document.createElement('div');
+    container.style.padding = '20px';
+    container.style.border = '2px solid black';
+    container.style.width = '300px';
+    container.style.margin = '50px auto';
+    container.style.textAlign = 'center';
+    document.body.appendChild(container);
+
+    // Create input
+    const input = document.createElement('input');
+    input.placeholder = 'Type something...';
+    container.appendChild(input);
+
+    // Create alert button
+    const alertBtn = document.createElement('button');
+    alertBtn.textContent = 'Show Alert';
+    container.appendChild(alertBtn);
+
+    // Create output div
+    const output = document.createElement('div');
+    output.style.marginTop = '20px';
+    container.appendChild(output);
+
+    // Button events
+    alertBtn.addEventListener('click', () => {
+      alert('You typed: ' + input.value);
+      output.textContent = 'You typed: ' + input.value;
+    });
+  </script>
+</body>
+</html>
