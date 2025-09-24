@@ -2,38 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS GUI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World GUI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+    }
+    .gui {
+      padding: 20px;
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    input {
+      padding: 8px;
+      margin: 10px 0;
+      width: 80%;
+    }
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0077cc;
+    }
+  </style>
 </head>
 <body>
+  <div class="gui">
+    <h2>Hello World GUI</h2>
+    <input type="text" id="userInput" placeholder="Type something...">
+    <div class="message" id="message">Hello World!</div>
+  </div>
+
   <script>
-    // Create container div
-    const container = document.createElement('div');
-    container.style.padding = '20px';
-    container.style.border = '2px solid black';
-    container.style.width = '300px';
-    container.style.margin = '50px auto';
-    container.style.textAlign = 'center';
-    document.body.appendChild(container);
+    const input = document.getElementById('userInput');
+    const message = document.getElementById('message');
 
-    // Create input
-    const input = document.createElement('input');
-    input.placeholder = 'Type something...';
-    container.appendChild(input);
-
-    // Create alert button
-    const alertBtn = document.createElement('button');
-    alertBtn.textContent = 'Show Alert';
-    container.appendChild(alertBtn);
-
-    // Create output div
-    const output = document.createElement('div');
-    output.style.marginTop = '20px';
-    container.appendChild(output);
-
-    // Button events
-    alertBtn.addEventListener('click', () => {
-      alert('You typed: ' + input.value);
-      output.textContent = 'You typed: ' + input.value;
+    input.addEventListener('input', () => {
+      message.textContent = 'Hello World! You typed: ' + input.value;
     });
   </script>
 </body>
