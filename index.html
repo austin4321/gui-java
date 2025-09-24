@@ -1,52 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World GUI</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f2f2f2;
-    }
-    .gui {
-      padding: 20px;
-      background: #fff;
-      border: 2px solid #333;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    input {
-      padding: 8px;
-      margin: 10px 0;
-      width: 80%;
-    }
-    .message {
-      margin-top: 20px;
-      font-weight: bold;
-      color: #0077cc;
-    }
-  </style>
-</head>
-<body>
-  <div class="gui">
-    <h2>Hello World GUI</h2>
-    <input type="text" id="userInput" placeholder="Type something...">
-    <div class="message" id="message">Hello World!</div>
-  </div>
+// Create container
+const container = document.createElement('div');
+container.style.position = 'fixed';
+container.style.top = '50%';
+container.style.left = '50%';
+container.style.transform = 'translate(-50%, -50%)';
+container.style.padding = '20px';
+container.style.background = '#fff';
+container.style.border = '2px solid #333';
+container.style.borderRadius = '10px';
+container.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+container.style.textAlign = 'center';
+container.style.zIndex = 9999;
 
-  <script>
-    const input = document.getElementById('userInput');
-    const message = document.getElementById('message');
+// Add title
+const title = document.createElement('h2');
+title.textContent = 'Hello World GUI';
+container.appendChild(title);
 
-    input.addEventListener('input', () => {
-      message.textContent = 'Hello World! You typed: ' + input.value;
-    });
-  </script>
-</body>
-</html>
+// Add input
+const input = document.createElement('input');
+input.type = 'text';
+input.placeholder = 'Type something...';
+input.style.padding = '8px';
+input.style.width = '80%';
+input.style.margin = '10px 0';
+container.appendChild(input);
+
+// Add message div
+const message = document.createElement('div');
+message.textContent = 'Hello World!';
+message.style.marginTop = '20px';
+message.style.fontWeight = 'bold';
+message.style.color = '#0077cc';
+container.appendChild(message);
+
+// Update message on input
+input.addEventListener('input', () => {
+  message.textContent = 'Hello World! You typed: ' + input.value;
+});
+
+// Append container to body
+document.body.appendChild(container);
